@@ -8,7 +8,7 @@ const StockData = ({ symbol }) => {
     let isMounted = true
     const fetchData = async () => {
       try {
-        const response = await finnHub.get('stock/profile2', {
+        const response = await finnHub.get('/stock/profile2', {
           params: {
             symbol,
           },
@@ -30,15 +30,15 @@ const StockData = ({ symbol }) => {
         <div className='row border bg-white rounded shadow-sm p-4 mt-5'>
           <div className='col'>
             <div>
-              <span className='fw-bold'>Name: </span>
+              <span className='fw-bold'>name: </span>
               {stockData.name}
             </div>
             <div>
-              <span className='fw-bold'>Country: </span>
+              <span className='fw-bold'>country: </span>
               {stockData.country}
             </div>
             <div>
-              <span className='fw-bold'>Ticker: </span>
+              <span className='fw-bold'>ticker: </span>
               {stockData.ticker}
             </div>
           </div>
@@ -66,7 +66,7 @@ const StockData = ({ symbol }) => {
               {stockData.shareOutstanding}
             </div>
             <div>
-              <span className='fw-bold'>URL: </span>
+              <span className='fw-bold'>url: </span>
               <a href={stockData.weburl}>{stockData.weburl}</a>
             </div>
           </div>

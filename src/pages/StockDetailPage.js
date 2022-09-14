@@ -14,7 +14,7 @@ const formatData = (data) => {
 }
 
 const StockDetailPage = () => {
-  const [chartData, setCharData] = useState()
+  const [chartData, setChartData] = useState()
   const { symbol } = useParams()
 
   useEffect(() => {
@@ -63,7 +63,7 @@ const StockDetailPage = () => {
         ])
         console.log(responses)
 
-        setCharData({
+        setChartData({
           day: formatData(responses[0].data),
           week: formatData(responses[1].data),
           year: formatData(responses[2].data),
@@ -80,7 +80,7 @@ const StockDetailPage = () => {
       {chartData && (
         <div>
           <StockChart chartData={chartData} symbol={symbol} />
-          <StockData />
+          <StockData symbol={symbol} />
         </div>
       )}
     </div>

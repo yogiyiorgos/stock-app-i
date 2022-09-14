@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { BsFillCaretUpFill, BsCaretDownFill } from 'react-icons/bs'
+import { BsFillCaretUpFill, BsFillCaretDownFill } from 'react-icons/bs'
 import finnHub from '../apis/finnHub'
 import { WatchListContext } from '../context/watchListContext'
 
@@ -15,13 +15,11 @@ const StockList = () => {
   }
 
   const renderIcon = (change) => {
-    return change > 0 ? <BsFillCaretUpFill /> : <BsCaretDownFill />
+    return change > 0 ? <BsFillCaretUpFill /> : <BsFillCaretDownFill />
   }
   useEffect(() => {
     let isMounted = true
     const fetchData = async () => {
-      const responses = []
-      console.log(responses) //TODO remove this unnecessary console.log
       try {
         const responses = await Promise.all(
           watchList.map((stock) => {
@@ -97,7 +95,7 @@ const StockList = () => {
                       e.stopPropagation()
                       deleteStock(stockData.symbol)
                     }}>
-                    Delete
+                    Remove
                   </button>
                 </td>
               </tr>

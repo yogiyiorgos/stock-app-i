@@ -1,10 +1,10 @@
 import { useState, useEffect, useContext } from 'react'
 import finnHub from '../apis/finnHub'
 import { WatchListContext } from '../context/watchListContext'
+
 const AutoComplete = () => {
   const [search, setSearch] = useState('')
   const [results, setResults] = useState([])
-
   const { addStock } = useContext(WatchListContext)
 
   const renderDropdown = () => {
